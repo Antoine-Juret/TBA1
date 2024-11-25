@@ -25,37 +25,68 @@ class Game:
         self.commands["help"] = help
         quit = Command("quit", " : quitter le jeu", Actions.quit, 0)
         self.commands["quit"] = quit
-        go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O)", Actions.go, 1)
+        go = Command("go", " <direction> : se déplacer dans une direction cardinale et de haut en bas (N, E, S, O, U, D)", Actions.go, 1)
         self.commands["go"] = go
         
         # Setup rooms
 
-        forest = Room("Forest", "une forêt enchantée. Vous entendez une brise légère à travers la cime des arbres.")
-        self.rooms.append(forest)
-        tower = Room("Tower", "une immense tour en pierre qui s'élève au dessus des nuages.")
-        self.rooms.append(tower)
-        cave = Room("Cave", "une grotte profonde et sombre. Des voix semblent provenir des profondeurs.")
-        self.rooms.append(cave)
-        cottage = Room("Cottage", "un petit chalet pittoresque avec un toit de chaume. Une épaisse fumée verte sort de la cheminée.")
-        self.rooms.append(cottage)
-        swamp = Room("Swamp", "un marécage sombre et ténébreux. L'eau bouillonne, les abords sont vaseux.")
-        self.rooms.append(swamp)
-        castle = Room("Castle", "un énorme château fort avec des douves et un pont levis. Sur les tours, des flèches en or massif.")
-        self.rooms.append(castle)
+        Quartier_général = Room("Quartier_général", "le Quartier Général Français.")
+        self.rooms.append(Quartier_général)
+        Caserne_Est= Room("Caserne_Est", "une Caserne située à l'Est du QG.")
+        self.rooms.append(Caserne_Est)
+        Caserne_Ouest = Room("Caserne_Ouest", "une Caserne située à l'Ouest du QG.")
+        self.rooms.append(Caserne_Ouest)
+        Cantine = Room("Cantine", "une Cantine dans laquelle mange des soldats.")
+        self.rooms.append(Cantine)
+        Armurerie = Room("Armurerie", "une Armurerie, on peut y trouver des armes en tout genres.")
+        self.rooms.append(Armurerie)
+        Chemin_effondré = Room("Chemin_effondré", "un chemin détruit à cause des bombardements allemands.")
+        self.rooms.append(Chemin_effondré)
+        Champs_de_mines = Room("Champs_de_mines", "un grand champs, attention celui ci peut contenir des mines, ne bougez plus!")
+        self.rooms.append(Champs_de_mines)
+        Moulin = Room("Moulin", "un moulin qui n'est plus utilisé depuis le début de la guerre.")
+        self.rooms.append(Moulin)
+        Tour_d_observation = Room("Tour_d_observation", "une tour d'observation très haute.")
+        self.rooms.append(Tour_d_observation)
+        Cave = Room("Cave", "une cave très sombre, vous semblez y distinger un cadavre.")
+        self.rooms.append(Cave)
+        Toit= Room("Toit", "le toit de la Tour, vous voyez l'ensemble du champs de bataille.")
+        self.rooms.append(Toit)
+        Char_abandonné = Room("Char_abandonné", "un Sturmpanzerwagen A7V transpercé par un obus, il est encore fumant.")
+        self.rooms.append(Char_abandonné)
+        Avant_poste_Allemand = Room("Avant_poste_Allemand", " une pièce occupée par des allemands")
+        self.rooms.append(Avant_poste_Allemand)
+        Tranchée_Nord = Room("Tranchée_Nord", "une très grande tranchée située au nord de la zone des combats.")
+        self.rooms.append(Tranchée_Nord)
+        Position_Avancée = Room("Position_Avancée", "une position avancée, là où se situe le Commandant Raynel.")
+        self.rooms.append(Position_Avancée)
+
+
+
+
 
         # Create exits for rooms
 
-        forest.exits = {"N" : cave, "E" : None, "S" : castle, "O" : None}
-        tower.exits = {"N" : cottage, "E" : None, "S" : None, "O" : None}
-        cave.exits = {"N" : None, "E" : cottage, "S" : forest, "O" : None}
-        cottage.exits = {"N" : None, "E" : None, "S" : tower, "O" : cave}
-        swamp.exits = {"N" : tower, "E" : None, "S" : None, "O" : castle}
-        castle.exits = {"N" : forest, "E" : swamp, "S" : None, "O" : None}
+        Quartier_général.exits = {"N" : Armurerie, "E" : Caserne_Est, "S" : None, "O" : Caserne_Ouest, "U" : None, "D" : None}
+        Caserne_Est.exits = {"N" : None, "E" : None, "S" : None, "O" : Quartier_général, "U" : None, "D" : None}
+        Caserne_Ouest.exits = {"N" : None, "E" : Quartier_général, "S" : None, "O" : Cantine, "U" : None, "D" : None}
+        Cantine.exits = {"N" : None, "E" : Caserne_Ouest, "S" : None, "O" : None, "U" : None, "D" : None}
+        Armurerie.exits = {"N" : Chemin_effondré, "E" : Moulin, "S" : None, "O" : Champs_de_mines, "U" : None, "D" : None}
+        Champs_de_mines.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : None, "D" : None}
+        Chemin_effondré.exits = {"N" : None, "E" : None, "S" : Armurerie, "O" : None, "U" : None, "D" : None}
+        Moulin.exits = {"N" : Avant_poste_Allemand, "E" : Tour_d_observation, "S" : None, "O" : Armurerie, "U" : None, "D" : None}
+        Tour_d_observation.exits = {"N" : Char_abandonné, "E" : None, "S" : None, "O" : Avant_poste_Allemand, "U" : Toit, "D" : Cave}
+        Cave.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : Tour_d_observation, "D" : None}
+        Toit.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : None, "D" : Tour_d_observation, "U" : None, "D" : None}
+        Char_abandonné.exits = {"N" : Tranchée_Nord, "E" : None, "S" : Tour_d_observation, "O" : Avant_poste_Allemand, "U" : None, "D" : None}
+        Avant_poste_Allemand.exits = {"N" : Tranchée_Nord, "E" : Char_abandonné, "S" : Moulin, "O" : None, "U" : None, "D" : None}
+        Tranchée_Nord.exits = {"N" : None, "E" : None, "S" : Char_abandonné, "O" : Position_Avancée, "U" : None, "D" : None}
+        Position_Avancée.exits = {"N" : None, "E" : Tranchée_Nord, "S" : None, "O" : None, "U" : None, "D" : None}
 
         # Setup player and starting room
 
         self.player = Player(input("\nEntrez votre nom: "))
-        self.player.current_room = swamp
+        self.player.current_room = Quartier_général
 
     # Play the game
     def play(self):
