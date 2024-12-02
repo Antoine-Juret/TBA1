@@ -46,10 +46,12 @@ class Actions:
 
         """
         dictDirections = {
-        "N": ["N", "n", "Nord", "nord"],
-        "S": ["S", "s", "sud","Sud"],
-        "E": ["E", "e", "Est", "est"],
-        "O": ["Ouest", "ouest", "o", "O"]
+        "N": ["N", "n", "Nord", "nord","NORD"],
+        "S": ["S", "s", "sud","Sud","SUD"],
+        "E": ["E", "e", "Est", "est","EST"],
+        "O": ["Ouest", "ouest", "o", "O","OUEST"],
+        "U": ["U","u","up","Up","UP"],
+        "D": ["D","d","down","Down","DOWN"]
         }
         
         
@@ -61,18 +63,19 @@ class Actions:
             command_word = list_of_words[0]
             print(MSG1.format(command_word=command_word))
             return False
-            
+       #Interface amélioré     
         userInput = list_of_words[1]
         
         for key, val in dictDirections.items():
             for v in val:
                 if(userInput == v):
-                    print("fefe ", key)
                     player.move(key)
                     return True
 
         print("La direction '", userInput, "' n'est pas reconnue")
         return False
+        #interface amélioré
+
         # Get the direction from the list of words.
         #direction = list_of_words[1].upper()
         # Move the player in the direction specified by the parameter.

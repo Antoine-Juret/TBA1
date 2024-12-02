@@ -77,7 +77,7 @@ class Game:
         Moulin.exits = {"N" : Avant_poste_Allemand, "E" : Tour_d_observation, "S" : None, "O" : Armurerie, "U" : None, "D" : None}
         Tour_d_observation.exits = {"N" : Char_abandonné, "E" : None, "S" : None, "O" : Avant_poste_Allemand, "U" : Toit, "D" : Cave}
         Cave.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : Tour_d_observation, "D" : None}
-        Toit.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : None, "D" : Tour_d_observation, "U" : None, "D" : None}
+        Toit.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : None, "D" : Tour_d_observation}
         Char_abandonné.exits = {"N" : Tranchée_Nord, "E" : None, "S" : Tour_d_observation, "O" : Avant_poste_Allemand, "U" : None, "D" : None}
         Avant_poste_Allemand.exits = {"N" : Tranchée_Nord, "E" : Char_abandonné, "S" : Moulin, "O" : None, "U" : None, "D" : None}
         Tranchée_Nord.exits = {"N" : None, "E" : None, "S" : Char_abandonné, "O" : Position_Avancée, "U" : None, "D" : None}
