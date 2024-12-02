@@ -1,4 +1,5 @@
 # Description: The actions module.
+from player import Player
 
 # The actions module contains the functions that are called when a command is executed.
 # Each function takes 3 parameters:
@@ -159,4 +160,12 @@ class Actions:
         for command in game.commands.values():
             print("\t- " + str(command))
         print()
+        return True
+
+    def get_history(game, list_of_words, number_of_parameters):
+        player = game.player
+        if player.history:
+            print("\nPièces déjà visitées :")
+            for i in player.history:
+                print("-",i.name)
         return True

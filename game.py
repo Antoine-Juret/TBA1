@@ -27,7 +27,8 @@ class Game:
         self.commands["quit"] = quit
         go = Command("go", " <direction> : se déplacer dans une direction cardinale et de haut en bas (N, E, S, O, U, D)", Actions.go, 1)
         self.commands["go"] = go
-        
+        history = Command("history", " : affiche les pièces déjà visitées", Actions.get_history, 0)
+        self.commands["history"] = history
         # Setup rooms
 
         Quartier_général = Room("Quartier_général", "le Quartier Général Français.")
