@@ -19,6 +19,7 @@ MSG1 = "\nLa commande '{command_word}' prend 1 seul paramètre.\n"
 class Actions:
 
     def go(game, list_of_words, number_of_parameters):
+        direction_valide={"N","S","E","O","U","D","Nord","Sud","Est","Ouest","Up","Down"}
         """
         Move the player in the direction specified by the parameter.
         The parameter must be a cardinal direction or up or down(N, E, S, O, U, D).
@@ -47,14 +48,18 @@ class Actions:
         
         player = game.player
         l = len(list_of_words)
+        # 
+        
+        #if list_of_words not in direction_valide:
+        #    print("\nDirection invalide ! Direction valides : N, S, E, O, U, D.\n")
+        #    return False
         # If the number of parameters is incorrect, print an error message and return False.
         if l != number_of_parameters + 1:
             command_word = list_of_words[0]
             print(MSG1.format(command_word=command_word))
             return False
-
         # Get the direction from the list of words.
-        direction = list_of_words[1]
+        direction = list_of_words[1].upper()
         # Move the player in the direction specified by the parameter.
         player.move(direction)
         return True

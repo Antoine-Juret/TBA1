@@ -71,7 +71,7 @@ class Game:
         Caserne_Est.exits = {"N" : None, "E" : None, "S" : None, "O" : Quartier_général, "U" : None, "D" : None}
         Caserne_Ouest.exits = {"N" : None, "E" : Quartier_général, "S" : None, "O" : Cantine, "U" : None, "D" : None}
         Cantine.exits = {"N" : None, "E" : Caserne_Ouest, "S" : None, "O" : None, "U" : None, "D" : None}
-        Armurerie.exits = {"N" : Chemin_effondré, "E" : Moulin, "S" : None, "O" : Champs_de_mines, "U" : None, "D" : None}
+        Armurerie.exits = {"N" : Chemin_effondré, "E" : Moulin, "S" : Quartier_général, "O" : Champs_de_mines, "U" : None, "D" : None}
         Champs_de_mines.exits = {"N" : None, "E" : None, "S" : None, "O" : None, "U" : None, "D" : None}
         Chemin_effondré.exits = {"N" : None, "E" : None, "S" : Armurerie, "O" : None, "U" : None, "D" : None}
         Moulin.exits = {"N" : Avant_poste_Allemand, "E" : Tour_d_observation, "S" : None, "O" : Armurerie, "U" : None, "D" : None}
