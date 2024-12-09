@@ -190,7 +190,7 @@ class Actions:
         print(player.current_room.get_long_description())
         return True
 
-    def inventory(game, list_of_words, number_of_parameters):
+    def check(game, list_of_words, number_of_parameters):
         """
         Affiche l'inventaire du joueur.
 

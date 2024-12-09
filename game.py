@@ -38,8 +38,8 @@ class Game:
         self.commands["history"] = history
         back = Command("back", " : effectue un retour en arrière si cela est possible", Actions.get_back, 0)
         self.commands["back"] = back
-        inventory = Command("inventory", " : afficher l'inventaire", Actions.inventory, 0)
-        self.commands["inventory"] = inventory
+        check = Command("check", " : afficher l'inventaire", Actions.check, 0)
+        self.commands["check"] = check
         look = Command("look", " : permet d'observer la pièce dans laquelle on se trouve", Actions.get_look, 0)
         self.commands["look"] = look
         # Setup rooms
