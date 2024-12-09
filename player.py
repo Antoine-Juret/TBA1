@@ -33,3 +33,5 @@ class Player():
         for i in (self.history):
             print("-",i.name)
         return True
+
+    def 

@@ -3,9 +3,9 @@ class Item:
         """
         Initialise un objet avec un nom, une description et un poids.
 
-        :param name: str, le nom de l'objet
-        :param description: str, la description de l'objet
-        :param weight: int ou float, le poids de l'objet en kilogrammes
+         name: str, le nom de l'objet
+         description: str, la description de l'objet
+         weight: int ou float, le poids de l'objet en kilogrammes
         """
         self.name = name
         self.description = description
