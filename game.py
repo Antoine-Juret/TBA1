@@ -29,6 +29,8 @@ class Game:
         self.commands["go"] = go
         history = Command("history", " : affiche les pièces déjà visitées", Actions.get_history, 0)
         self.commands["history"] = history
+        back = Command("back", " : effectue un retour en arrière si cela est possible", Actions.get_back, 1)
+        self.commands["back"] = back
         # Setup rooms
 
         Quartier_général = Room("Quartier_général", "le Quartier Général Français.")

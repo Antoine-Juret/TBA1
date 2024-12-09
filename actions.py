@@ -169,3 +169,23 @@ class Actions:
             for i in player.history:
                 print("-",i.name)
         return True
+    
+    def get_back(game,list_of_words, number_of_parameters):
+        player = game.player
+        if (len(player.history) != 0):
+                # Set the current room to the next room.
+            player.next_room = player.history[len(player.history) -1]
+            player.current_room = player.next_room
+            player.history.pop()
+            print(player.current_room.get_long_description())
+            #Pièces déjà vivsité
+            if len(player.history) > 0:
+                print("\nVous avez déjà visité les pièces suivantes:")
+                for i in (player.history):
+                    print("-",i.name)
+                return True
+            else :
+                print("Vous n'avez pas visité d'autre pièce.")
+                return True
+        print(player.current_room.get_long_description())
+        return True
