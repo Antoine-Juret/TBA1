@@ -6,6 +6,7 @@ class Player():
         self.name = name
         self.current_room = None
         self.history = []
+        self.inventory = []  # Liste des objets ramassés
     
     # Define the move method.
     def move(self, direction):

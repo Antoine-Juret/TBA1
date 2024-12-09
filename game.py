@@ -6,6 +6,7 @@ from room import Room
 from player import Player
 from command import Command
 from actions import Actions
+from item import Item
 
 class Game:
 
@@ -18,6 +19,12 @@ class Game:
     
     # Setup the game
     def setup(self):
+
+        # création d'objets 
+        fusil = Item("Fusil lebel ", "fusil réglementaire de l'armée française", 4.5)
+        grenade = Item("grenade f1", "grenade a fragmentation", 0.5)
+        casque= Item("casque Adrian ", "Casque de l'armée française ", 0.750)
+        lettre= Item("Lettre du général", "Ordre de repli signé par le général ", 0.2)
 
         # Setup commands
 
