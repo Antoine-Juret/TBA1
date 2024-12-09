@@ -189,3 +189,28 @@ class Actions:
                 return True
         print(player.current_room.get_long_description())
         return True
+
+    def inventory(game, list_of_words, number_of_parameters):
+        """
+        Affiche l'inventaire du joueur.
+
+        Args:
+            game (Game): L'objet du jeu.
+            list_of_words (list): Les mots de la commande.
+            number_of_parameters (int): Le nombre de paramètres attendus.
+
+        Returns:
+            bool: True si la commande est exécutée avec succès, False sinon.
+        """
+        # Vérification du nombre de paramètres
+        if len(list_of_words) != number_of_parameters + 1:
+            command_word = list_of_words[0]
+            print(MSG0.format(command_word=command_word))
+            return False
+
+        # Appel de la méthode get_inventory sur le joueur
+        game.player.get_inventory()
+        return True
+    
+    def get_look(game,list_of_words, number_of_parameters):
+        return True

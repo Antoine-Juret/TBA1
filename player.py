@@ -6,7 +6,7 @@ class Player():
         self.name = name
         self.current_room = None
         self.history = []
-        self.inventory = []  # Liste des objets ramassés
+        self.inventory = {}  # Liste des objets ramassés
     
     # Define the move method.
     def move(self, direction):
@@ -27,11 +27,13 @@ class Player():
         for i in (self.history):
             print("-",i.name)
         return True
-    
-    def get_history2(self):
-        print("\nVous avez déjà visité les pièces suivantes:")
-        for i in (self.history):
-            print("-",i.name)
-        return True
 
-    def 
+    def get_inventory(self):
+        if not self.inventory:
+            print("\nVotre inventaire est vide.\n")
+        else:
+            print("\nInventaire :")
+            for item in self.inventory:
+                print(f"- {item}")
+    
+         

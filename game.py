@@ -36,8 +36,12 @@ class Game:
         self.commands["go"] = go
         history = Command("history", " : affiche les pièces déjà visitées", Actions.get_history, 0)
         self.commands["history"] = history
-        back = Command("back", " : effectue un retour en arrière si cela est possible", Actions.get_back, 1)
+        back = Command("back", " : effectue un retour en arrière si cela est possible", Actions.get_back, 0)
         self.commands["back"] = back
+        inventory = Command("inventory", " : afficher l'inventaire", Actions.inventory, 0)
+        self.commands["inventory"] = inventory
+        look = Command("look", " : permet d'observer la pièce dans laquelle on se trouve", Actions.get_look, 0)
+        self.commands["look"] = look
         # Setup rooms
 
         Quartier_général = Room("Quartier_général", "le Quartier Général Français.")
