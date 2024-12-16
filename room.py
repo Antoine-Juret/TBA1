@@ -30,3 +30,12 @@ class Room:
     # Return a long description of this room including exits.
     def get_long_description(self):
         return f"\nVous êtes dans {self.description}\n\n{self.get_exit_string()}\n"
+    
+    def get_inventory(self):
+        if not self.inventory:
+            print("Il n'y a pas d'objet dans la pièce.")
+            return True
+        for elt in self.inventory:
+            print(elt)
+        return True
+        

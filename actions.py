@@ -1,5 +1,6 @@
 # Description: The actions module.
 from player import Player
+from room import Room
 
 # The actions module contains the functions that are called when a command is executed.
 # Each function takes 3 parameters:
@@ -212,5 +213,40 @@ class Actions:
         game.player.get_inventory()
         return True
     
-    def get_look(game,list_of_words, number_of_parameters):
-        return True
+    def look(game,list_of_words, number_of_parameters):
+       if len(list_of_words) != number_of_parameters + 1:
+            command_word = list_of_words[0]
+            print(MSG0.format(command_word=command_word))
+            return False
+       player = game.player
+       Room.get_inventory(player.current_room)
+       return True
+    
+    def take (game,list_of_words, number_of_parameters):
+        if len(list_of_words) != number_of_parameters + 1:
+            command_word = list_of_words[0]
+            print(MSG0.format(command_word=command_word))
+            return False
+        
+        player = game.player
+        iteme = list_of_words[1]
+        for item in player.current_room.inventory:
+            if iteme==item.name:
+                player.inventory[item.name]=item
+                player.current_room.inventory.remove(item)
+                return True
+
+
+
+    def drop (game,list_of_words, number_of_parameters):
+        if len(list_of_words) != number_of_parameters + 1:
+            command_word = list_of_words[0]
+            print(MSG0.format(command_word=command_word))
+            return False
+        
+        player=game.player
+        iteme = list_of_words[1]
+        if iteme in player.inventory.keys():
+            del player.inventory[iteme]
+            (player.current_room).inventory.add(iteme)
+            return True

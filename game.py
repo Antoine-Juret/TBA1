@@ -21,10 +21,11 @@ class Game:
     def setup(self):
 
         # création d'objets 
-        fusil = Item("Fusil lebel ", "fusil réglementaire de l'armée française", 4.5)
-        grenade = Item("grenade f1", "grenade a fragmentation", 0.5)
-        casque= Item("casque Adrian ", "Casque de l'armée française ", 0.750)
-        lettre= Item("Lettre du général", "Ordre de repli signé par le général ", 0.2)
+        Fusil_lebel= Item("Fusil_lebel ", "fusil réglementaire de l'armée française", 4.5)
+        grenade_f1 = Item("grenade_f1", "grenade a fragmentation", 0.5)
+        casque_Adrian= Item("casque_Adrian ", "Casque de l'armée française ", 0.750)
+        Lettre_du_général= Item("Lettre_du_général", "Ordre de repli signé par le général ", 0.2)
+
 
         # Setup commands
 
@@ -40,8 +41,13 @@ class Game:
         self.commands["back"] = back
         check = Command("check", " : afficher l'inventaire", Actions.check, 0)
         self.commands["check"] = check
-        look = Command("look", " : permet d'observer la pièce dans laquelle on se trouve", Actions.get_look, 0)
+        take = Command("take", " : permet de prendre un objet", Actions.take, 1)
+        self.commands["take"] = take
+        look = Command("look", " : permet d'observer la pièce dans laquelle on se trouve", Actions.look, 0)
         self.commands["look"] = look
+        drop = Command("drop", " : permet de déposer un objet dans la pièce", Actions.drop, 1)
+        self.commands["drop"] = drop
+
         # Setup rooms
 
         Quartier_général = Room("Quartier_général", "le Quartier Général Français.")
@@ -101,6 +107,13 @@ class Game:
 
         self.player = Player(input("\nEntrez votre nom: "))
         self.player.current_room = Quartier_général
+
+        # assignation des objets au lieux
+        Quartier_général.inventory.add(Lettre_du_général)
+        Caserne_Est.inventory.add(grenade_f1)
+        Caserne_Est.inventory.add(Fusil_lebel)
+        Caserne_Est.inventory.add(casque_Adrian)
+        
 
     # Play the game
     def play(self):
