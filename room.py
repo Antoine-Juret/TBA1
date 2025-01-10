@@ -36,6 +36,6 @@ class Room:
             print("Il n'y a pas d'objet dans la pièce.")
             return True
         for elt in self.inventory:
-            print(elt)
+            print("\t","-",elt)
         return True
         

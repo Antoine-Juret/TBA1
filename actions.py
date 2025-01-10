@@ -168,7 +168,7 @@ class Actions:
         if player.history:
             print("\nPièces déjà visitées :")
             for i in player.history:
-                print("-",i.name)
+                print("\t","-", i.name , i.description)
         return True
     
     def get_back(game,list_of_words, number_of_parameters):
@@ -183,7 +183,7 @@ class Actions:
             if len(player.history) > 0:
                 print("\nVous avez déjà visité les pièces suivantes:")
                 for i in (player.history):
-                    print("-",i.name)
+                    print("\t","-",i.name,",",i.description)
                 return True
             else :
                 print("Vous n'avez pas visité d'autre pièce.")
@@ -232,11 +232,11 @@ class Actions:
         iteme = list_of_words[1]
         for item in player.current_room.inventory:
             if iteme==item.name:
-                player.inventory[item.name]=item
+                player.inventory[item]=item    #player.inventory[item.name]=item
                 player.current_room.inventory.remove(item)
                 return True
-            else :
-                print("L\' objet n\'existe pas")
+        else :
+            print("L\' objet n\'existe pas")
 
 
 
@@ -248,9 +248,12 @@ class Actions:
         
         player=game.player
         iteme = list_of_words[1]
-        if iteme in player.inventory.keys():
-            del player.inventory[iteme]
-            (player.current_room).inventory.add(iteme)
+        for ite in player.inventory:
+            #print(ite)
+            if iteme==ite.name:
+                #print(ite)
+                del player.inventory[ite]#del player.inventory[iteme]
+                (player.current_room).inventory.add(ite) #(player.current_room).inventory.add(iteme)
             return True
         else :
             print("L\' objet n\'existe pas")

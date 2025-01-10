@@ -25,7 +25,7 @@ class Player():
         #Pièces déjà vivsité
         print("\nVous avez déjà visité les pièces suivantes:")
         for i in (self.history):
-            print("-",i.name)
+            print( "\t","-",i.name)
         return True
 
     def get_inventory(self):
@@ -33,7 +33,7 @@ class Player():
             print("\nVotre inventaire est vide.\n")
         else:
             print("\nInventaire :")
-            for item in self.inventory:
-                print(f"- {item}")
+            for j in self.inventory:
+                print("\t","-",j)
     
          

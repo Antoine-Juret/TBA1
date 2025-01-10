@@ -21,10 +21,10 @@ class Game:
     def setup(self):
 
         # création d'objets 
-        Fusil_lebel= Item("Fusil_lebel ", "fusil réglementaire de l'armée française", 4.5)
+        Fusil_lebel = Item("Fusil_lebel", "fusil réglementaire de l'armée française", 4.5)
         grenade_f1 = Item("grenade_f1", "grenade a fragmentation", 0.5)
-        casque_Adrian= Item("casque_Adrian ", "Casque de l'armée française ", 0.750)
-        Lettre_du_général= Item("Lettre_du_général", "Ordre de repli signé par le général ", 0.2)
+        casque_Adrian = Item("casque_Adrian", "Casque de l'armée française ", 0.750)
+        Lettre_du_général = Item("Lettre_du_général", "Ordre de repli signé par le général ", 0.2)
 
 
         # Setup commands
