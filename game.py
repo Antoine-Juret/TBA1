@@ -7,6 +7,7 @@ from player import Player
 from command import Command
 from actions import Actions
 from item import Item
+from character import Character
 
 class Game:
 
@@ -82,7 +83,7 @@ class Game:
         self.rooms.append(Position_Avancée)
 
         # création des pnj
-        
+        soldat_allemand= Character("soldat_allemand ",Avant_poste_Allemand,"un soldat allemand monte la garde"," halte ou j'ouvre le feu !!")
 
 
 
@@ -114,7 +115,9 @@ class Game:
         Caserne_Est.inventory.add(grenade_f1)
         Caserne_Est.inventory.add(Fusil_lebel)
         Caserne_Est.inventory.add(casque_Adrian)
-        
+        # Assignation des pnj aux lieux
+        Avant_poste_Allemand.Character[soldat_allemand.name]=soldat_allemand
+        #Avant_poste_Allemand.Character.add(soldat_allemand)
 
     # Play the game
     def play(self):

@@ -1,7 +1,7 @@
 class Character():
 
     # Define the constructor.
-    def __init__(self, name):
+    def __init__(self, name, current_room, description, msgs):
         self.name = name
         self.current_room = None
         self.description = description
