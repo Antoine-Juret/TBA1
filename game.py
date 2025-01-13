@@ -81,7 +81,8 @@ class Game:
         Position_Avancée = Room("Position_Avancée", "une position avancée, là où se situe le Commandant Raynel.")
         self.rooms.append(Position_Avancée)
 
-
+        # création des pnj
+        
 
 
 
