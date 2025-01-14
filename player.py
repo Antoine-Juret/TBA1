@@ -1,25 +1,63 @@
-# Define the Player class.
+
+"""
+La classe Player gère les informations relatives au joueur, comme son nom, 
+la pièce où il se trouve actuellement, l'historique des pièces visitées, 
+et son inventaire.
+"""
 class Player():
+    """
+    Classe représentant le joueur.
+
+    Attributs:
+    ----------
+    name : str
+        Le nom du joueur.
+    current_room : Room | None
+        La pièce où se trouve actuellement le joueur.
+    history : list[Room]
+        L'historique des pièces visitées.
+    inventory : dict[str, Item]
+        L'inventaire du joueur, où les clés sont les noms des objets et les 
+        valeurs sont des instances d'Item.
+    """
 
     # Define the constructor.
     def __init__(self, name):
+        """
+        initialise un joueur avec un nom, un historique vide, et un inventaire vide.
+
+        Paramètres:
+        -----------
+        name : str
+            Le nom du joueur.
+        """
         self.name = name
         self.current_room = None
         self.history = []
         self.inventory = {}  # Liste des objets ramassés
-    
+
     # Define the move method.
     def move(self, direction):
-        # Get the next room from the exits dictionary of the current room.
+        """
+        Tente de déplacer le joueur dans une direction donnée.
+
+        Paramètres:
+        -----------
+        direction : str
+        La direction dans laquelle le joueur souhaite se déplacer.
+
+        Retourne:
+        ---------
+        bool
+        True si le déplacement est réussi, False sinon.
+        """
         next_room = self.current_room.exits[direction]
 
-        # If the next room is None, print an error message and return False.
         if next_room is None:
             print("\nAucune porte dans cette direction !\n")
             return False
         self.history.append(self.current_room)
 
-        # Set the current room to the next room.
         self.current_room = next_room
         print(self.current_room.get_long_description())
         #Pièces déjà vivsité
@@ -29,11 +67,15 @@ class Player():
         return True
 
     def get_inventory(self):
+        """
+          Affiche les objets actuellement dans l'inventaire du joueur.
+
+        Si l'inventaire est vide, affiche un message indiquant que l'inventaire
+        ne contient aucun objet.
+        """
         if not self.inventory:
             print("\nVotre inventaire est vide.\n")
         else:
             print("\nInventaire :")
             for j in self.inventory:
                 print("\t","-",j)
-    
-         

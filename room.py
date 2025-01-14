@@ -1,7 +1,7 @@
 # Define the Room class.
 """
 Module contenant la classe Room, qui représente une pièce 
-dans un jeu d'exploration.
+dans notre jeu.
 Chaque pièce possède un nom, une description, des sorties,
 un inventaire d'objets et des personnages.
 """
