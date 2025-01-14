@@ -5,7 +5,7 @@ class Character():
         self.name = name
         self.current_room = None
         self.description = description
-        self.msgs=msgs
+        self.msgs = msgs
 
     def __str__(self):
         """
@@ -14,3 +14,8 @@ class Character():
         :return: str, une chaîne décrivant le personnage
         """
         return f"{self.name} :{self.current_room}: {self.description}: {self.msgs}" 
+    
+    def get_msg(self):
+        for i in room.Character:
+            print(i.msgs)
+        return True

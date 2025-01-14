@@ -1,6 +1,7 @@
 # Description: The actions module.
 from player import Player
 from room import Room
+from character import Character
 
 # The actions module contains the functions that are called when a command is executed.
 # Each function takes 3 parameters:
@@ -257,3 +258,19 @@ class Actions:
             return True
         else :
             print("L\' objet n\'existe pas")
+        return True
+    
+    def talk (game,list_of_words, number_of_parameters):
+        if len(list_of_words) != number_of_parameters + 1:
+            command_word = list_of_words[0]
+            print(MSG1.format(command_word=command_word))
+            return False
+        player=game.player
+        nom = list_of_words
+        #for i in room.Character:
+        #    if nom == i.name:
+        #        print(i.msgs)
+        #    else :
+        #        print("\t", i.name, "ne parle pas.")
+        Character.get_msg(player.current_room)
+        return True

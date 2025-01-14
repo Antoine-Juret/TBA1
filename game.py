@@ -48,6 +48,8 @@ class Game:
         self.commands["look"] = look
         drop = Command("drop", " : permet de déposer un objet dans la pièce", Actions.drop, 1)
         self.commands["drop"] = drop
+        talk = Command("talk", " : permet d'échanger avec les personnages rencontrés", Actions.talk, 1)
+        self.commands["talk"] = talk
 
         # Setup rooms
 
@@ -116,7 +118,7 @@ class Game:
         Caserne_Est.inventory.add(Fusil_lebel)
         Caserne_Est.inventory.add(casque_Adrian)
         # Assignation des pnj aux lieux
-        Avant_poste_Allemand.Character[soldat_allemand.name]=soldat_allemand
+        Avant_poste_Allemand.Character.add(soldat_allemand)
         #Avant_poste_Allemand.Character.add(soldat_allemand)
 
     # Play the game

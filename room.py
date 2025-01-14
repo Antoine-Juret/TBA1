@@ -34,7 +34,7 @@ class Room:
         self.description = description
         self.exits = {}
         self.inventory = set()
-        self.Character = {}
+        self.Character = set()
 
     # Define the get_exit method.
     def get_exit(self, direction):
@@ -93,6 +93,6 @@ class Room:
             print("Il n'y a personne dans la pièce.")
         else:
             print("Il y a :")
-            for key in self.Character:
-                print("\t","-", key)
+            for elt in self.Character:
+                print("\t","-", elt.name ,":", elt.description)
         return True
