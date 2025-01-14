@@ -1,3 +1,6 @@
+from room import Room
+from player import Player
+
 class Character():
 
     # Define the constructor.
@@ -16,6 +19,8 @@ class Character():
         return f"{self.name} :{self.current_room}: {self.description}: {self.msgs}" 
     
     def get_msg(self):
-        for i in room.Character:
+        print("oui")
+        print(self.name)
+        for i in Room.Character:
             print(i.msgs)
         return True
