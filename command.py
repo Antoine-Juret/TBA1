@@ -7,9 +7,6 @@ Classes:
     Command: Représente une commande et fournit les informations 
     nécessaires pour son exécution.
 
-Usage:
-    Ce module est utilisé dans le cadre d'un moteur de jeu 
-    où des commandes textuelles sont interprétées pour exécuter des actions.
 
 """
 
