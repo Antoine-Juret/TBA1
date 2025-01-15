@@ -85,7 +85,7 @@ class Game:
         self.rooms.append(Position_Avancée)
 
         # création des pnj
-        soldat_allemand= Character("soldat_allemand ",Avant_poste_Allemand,"un soldat allemand monte la garde"," halte ou j'ouvre le feu !!")
+        soldat_allemand= Character("soldat_allemand ",Avant_poste_Allemand,"un soldat allemand monte la garde"," Halte ou j'ouvre le feu !!")
 
 
 

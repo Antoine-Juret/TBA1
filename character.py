@@ -49,8 +49,5 @@ class Character():
         Returns:
             bool: True si les messages ont été affichés correctement.
         """
-        print("oui")
-        print(self.name)
-        for i in Room.Character:
-            print(i.msgs)
+        Room.get_msg(self)
         return True
