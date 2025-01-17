@@ -1,6 +1,16 @@
-# Description: Game class
+"""
+Module game.py
 
-# Import modules
+Ce module contient la classe `Game` qui définit la logique principale d'un jeu d'aventure textuel. 
+Le joueur interagit avec un environnement de pièces, objets, personnages et commandes.
+
+Classes:
+    Game: Gère la configuration, la boucle principale du jeu, et l'interaction utilisateur.
+
+Fonctions:
+    main(): Point d'entrée du jeu.
+
+"""
 
 from room import Room
 from player import Player
@@ -10,18 +20,41 @@ from item import Item
 from character import Character
 
 class Game:
+    """
+        Classe principale pour gérer le jeu d'aventure.
 
-    # Constructor
+    Attributs:
+        finished (bool): Indique si le jeu est terminé.
+        rooms (list[Room]): Liste des pièces du jeu.
+        commands (dict[str, Command]): Dictionnaire des commandes disponibles.
+        player (Player): Le joueur qui participe au jeu.
+
+    Méthodes:
+        __init__(): Initialise une nouvelle instance de la classe Game.
+        setup(): Configure les éléments du jeu (pièces, commandes, objets, personnages).
+        play(): Démarre la boucle principale du jeu.
+        check_victory_condition(): Vérifie si la condition de victoire est atteinte.
+        process_command(command_string): Traite les commandes saisies par le joueur.
+        print_welcome(): Affiche un message de bienvenue au joueur.
+    """
+
     def __init__(self):
         self.finished = False
         self.rooms = []
         self.commands = {}
         self.player = None
-    
+
     # Setup the game
     def setup(self):
+        """
+        Configure les éléments du jeu, y compris les pièces, 
+        les objets, les personnages et les commandes.
 
-        # création d'objets 
+        Crée des pièces, des objets, des personnages non-joueurs (PNJ) et associe des sorties 
+        et des objets aux pièces. Configure également les commandes du joueur.
+        """
+
+        # création d'objets
         Fusil_lebel = Item("Fusil_lebel", "fusil réglementaire de l'armée française", 4.5)
         grenade_f1 = Item("grenade_f1", "grenade a fragmentation", 0.5)
         casque_Adrian = Item("casque_Adrian", "Casque de l'armée française ", 0.750)
@@ -124,6 +157,10 @@ class Game:
 
     # Play the game
     def play(self):
+        """
+        Démarre la boucle principale du jeu. Le jeu continue jusqu'à ce que l'objectif soit atteint 
+        ou que le joueur quitte.
+        """
         self.setup()
         self.print_welcome()
         # Loop until the game is finished
@@ -136,13 +173,19 @@ class Game:
             if self.check_victory_condition():
                 print("\nFélicitations, vous avez gagné le jeu!")
                 self.finished = True  # Mettre fin au jeu
-    
+
         print("\nLe jeu est terminé.")
         return None
 
     def check_victory_condition(self):
+        """
+        Vérifie si la condition de victoire est atteinte.
+
+        Returns:
+            bool: True si la condition est atteinte, False sinon.
+        """
         # Exemple de condition de fin : le joueur doit atteindre une certaine pièce
-        
+
         if self.player.current_room.name == "Position_Avancée":
             for i in self.player.current_room.inventory:
                 if i.name == "Lettre_du_général":
@@ -151,6 +194,12 @@ class Game:
 
     # Process the command entered by the player
     def process_command(self, command_string) -> None:
+        """
+        Traite une commande saisie par le joueur.
+
+        Args:
+            command_string (str): La commande saisie par le joueur.
+        """
 
 
         # Split the command string into a list of words
@@ -162,7 +211,7 @@ class Game:
         # If the command is not recognized, print an error message
         if command_word not in self.commands.keys():
             print(f"\nCommande '{command_word}' non reconnue. Entrez 'help' pour voir la liste des commandes disponibles.\n")
-        
+
         # If the command is recognized, execute it
         else:
             command = self.commands[command_word]
@@ -170,16 +219,21 @@ class Game:
 
     # Print the welcome message
     def print_welcome(self):
+        """
+        Affiche un message de bienvenue au joueur.
+        """
         print(f"\nBienvenue {self.player.name} dans ce jeu d'aventure !\n\nVous avez pour mission de trouver la lettre du Général et de lui transmettre car les ordres ont changé et il ne faut plus attaquer.")
         print("\n""Entrez 'help' si vous avez besoin d'aide.")
         #
         print(self.player.current_room.get_long_description())
-    
+
 
 def main():
-    # Create a game object and play the game
+    """
+    Point d'entrée pour lancer le jeu.
+    """
     Game().play()
-    
+
 
 if __name__ == "__main__":
     main()
