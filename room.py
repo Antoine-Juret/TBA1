@@ -96,8 +96,3 @@ class Room:
             for elt in self.Character:
                 print("\t","-", elt.name ,":", elt.description)
         return True
-    
-    def get_msg(self):
-        for elt in self.Character:
-            print("\n","\t", elt.msgs)
-        return True

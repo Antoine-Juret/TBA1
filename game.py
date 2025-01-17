@@ -85,7 +85,8 @@ class Game:
         self.rooms.append(Position_Avancée)
 
         # création des pnj
-        soldat_allemand= Character("soldat_allemand ",Avant_poste_Allemand,"un soldat allemand monte la garde"," Halte ou j'ouvre le feu !!")
+        soldat_allemand= Character("soldat_allemand",Avant_poste_Allemand,"un soldat allemand monte la garde",[" Halte ou j'ouvre le feu !!", " PIOU PIOU "])
+        Commandant_Raynel = Character("Commandant_Raynel", Position_Avancée,"Le Commandant Raynel qui va lancer l'assault", ["Dépèchez vous on va attaquer","Il n'y aura pas d'attaque finalement"])
 
 
 
@@ -119,7 +120,7 @@ class Game:
         Caserne_Est.inventory.add(casque_Adrian)
         # Assignation des pnj aux lieux
         Avant_poste_Allemand.Character.add(soldat_allemand)
-        #Avant_poste_Allemand.Character.add(soldat_allemand)
+        Position_Avancée.Character.add(Commandant_Raynel)
 
     # Play the game
     def play(self):
@@ -129,7 +130,24 @@ class Game:
         while not self.finished:
             # Get the command from the player
             self.process_command(input("> "))
+
+
+            # Vérifier si le joueur a atteint l'objectif de fin
+            if self.check_victory_condition():
+                print("\nFélicitations, vous avez gagné le jeu!")
+                self.finished = True  # Mettre fin au jeu
+    
+        print("\nLe jeu est terminé.")
         return None
+
+    def check_victory_condition(self):
+        # Exemple de condition de fin : le joueur doit atteindre une certaine pièce
+        
+        if self.player.current_room.name == "Position_Avancée":
+            for i in self.player.current_room.inventory:
+                if i.name == "Lettre_du_général":
+                    return True   # Le joueur a gagné
+        return False
 
     # Process the command entered by the player
     def process_command(self, command_string) -> None:
@@ -152,8 +170,8 @@ class Game:
 
     # Print the welcome message
     def print_welcome(self):
-        print(f"\nBienvenue {self.player.name} dans ce jeu d'aventure !")
-        print("Entrez 'help' si vous avez besoin d'aide.")
+        print(f"\nBienvenue {self.player.name} dans ce jeu d'aventure !\n\nVous avez pour mission de trouver la lettre du Général et de lui transmettre car les ordres ont changé et il ne faut plus attaquer.")
+        print("\n""Entrez 'help' si vous avez besoin d'aide.")
         #
         print(self.player.current_room.get_long_description())
     

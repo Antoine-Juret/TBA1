@@ -265,12 +265,21 @@ class Actions:
             command_word = list_of_words[0]
             print(MSG1.format(command_word=command_word))
             return False
-        player=game.player
-        nom = list_of_words
+
+        player = game.player
+        nom = list_of_words[1]
+
         #for i in room.Character:
         #    if nom == i.name:
         #        print(i.msgs)
         #    else :
         #        print("\t", i.name, "ne parle pas.")
-        Character.get_msg(player.current_room)
+        #Character.get_msg(player.current_room)
+
+        for j in player.current_room.Character:
+            if j.name == nom:
+                j.get_msg()  # Appel de la méthode get_msg sur l'instance du personnage
+            return True
+
+        print(f"\t{nom} ne parle pas.")
         return True
