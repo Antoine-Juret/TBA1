@@ -162,7 +162,7 @@ class Game:
         self.rooms.append(Tranchée_Nord)
         Position_Avancée = Room(
             "Position_Avancée",
-            "une position avancée, là où se situe le Commandant Raynel.",
+            "une position avancée, là où se situe le Commandant Raynal.",
         )
         self.rooms.append(Position_Avancée)
 
@@ -171,12 +171,12 @@ class Game:
             "soldat_allemand",
             Avant_poste_Allemand,
             "un soldat allemand monte la garde",
-            [" Halte ou j'ouvre le feu !!", " PIOU PIOU "],
+            [" Halte ou j'ouvre le feu !!", " fire !! "],
         )
         Commandant_Raynel = Character(
-            "Commandant_Raynel",
+            "Commandant_Raynal",
             Position_Avancée,
-            "Le Commandant Raynel qui va lancer l'assault",
+            "Le Commandant Raynal qui va lancer l'assault",
             ["Dépèchez vous on va attaquer", "Il n'y aura pas d'attaque finalement"],
         )
 
@@ -397,7 +397,7 @@ class Game:
         Affiche un message de bienvenue au joueur.
         """
         print(
-            f"\nBienvenue {self.player.name} dans ce jeu d'aventure !\n\nVous avez pour mission de trouver la lettre du Général et de lui transmettre car les ordres ont changé et il ne faut plus attaquer."
+            f"\nBienvenue {self.player.name} dans notre jeu d'aventure !\n\nVous avez pour mission de délivrer la lettre du général au commandant Raynal."
         )
         print("\n" "Entrez 'help' si vous avez besoin d'aide.")
         #
