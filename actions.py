@@ -44,6 +44,7 @@ class Actions:
     ou les mots de la commande) et renvoient un booléen indiquant 
     si l'action a été exécutée avec succès.
     """
+    @staticmethod
     def go(game, list_of_words, number_of_parameters):
 
         """
@@ -96,7 +97,7 @@ class Actions:
 
         print("La direction '", userInput, "' n'est pas reconnue")
         return False
-
+    @staticmethod
     def quit(game, list_of_words, number_of_parameters):
         """
         Quitte le jeu en affichant un message d'adieu.
@@ -121,7 +122,7 @@ class Actions:
         print(msg)
         game.finished = True
         return True
-
+    @staticmethod
     def help(game, list_of_words, number_of_parameters):
         """
           Affiche la liste des commandes disponibles dans le jeu.
@@ -147,7 +148,7 @@ class Actions:
             print("\t- " + str(command))
         print()
         return True
-
+    @staticmethod
     def get_history(game, list_of_words, number_of_parameters):
         """
         Affiche l'historique des pièces visitées par le joueur.
@@ -166,7 +167,7 @@ class Actions:
             for i in player.history:
                 print("\t","-", i.name , i.description)
         return True
-
+    @staticmethod
     def get_back(game,list_of_words, number_of_parameters):
         """
             Ramène le joueur à la pièce précédente dans l'historique.
@@ -196,7 +197,7 @@ class Actions:
                 return True
         print(player.current_room.get_long_description())
         return True
-
+    @staticmethod
     def check(game, list_of_words, number_of_parameters):
         """
         Affiche l'inventaire du joueur.
@@ -218,7 +219,7 @@ class Actions:
         # Appel de la méthode get_inventory sur le joueur
         game.player.get_inventory()
         return True
-
+    @staticmethod
     def look(game,list_of_words, number_of_parameters):
         """
             Affiche les objets disponibles dans la pièce actuelle.
@@ -238,7 +239,7 @@ class Actions:
         player = game.player
         Room.get_inventory(player.current_room)
         return True
-
+    @staticmethod
     def take (game,list_of_words, number_of_parameters):
         """
           Permet au joueur de ramasser un objet dans la pièce actuelle.
@@ -267,7 +268,7 @@ class Actions:
             print("L\' objet n\'existe pas")
 
 
-
+    @staticmethod
     def drop (game,list_of_words, number_of_parameters):
         """
          Permet au joueur de déposer un objet dans la pièce actuelle.
@@ -297,7 +298,7 @@ class Actions:
         else :
             print("L\' objet n\'existe pas")
         return True
-
+    @staticmethod
     def talk (game,list_of_words, number_of_parameters):
         """
             Permet au joueur de parler avec un personnage présent dans la pièce actuelle.
