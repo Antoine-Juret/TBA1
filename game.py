@@ -366,7 +366,7 @@ class Game:
         if self.player.current_room.name == "Champs_de_mines":
             return True
 
-    # Process the command entered by the player
+
     def process_command(self, command_string) -> None:
         """
         Traite une commande saisie par le joueur.
@@ -375,24 +375,24 @@ class Game:
             command_string (str): La commande saisie par le joueur.
         """
 
-        # Split the command string into a list of words
+
         list_of_words = command_string.split(" ")
 
         command_word = list_of_words[0]
         if command_string == "":
             return
-        # If the command is not recognized, print an error message
+
         if command_word not in self.commands.keys():
             print(
                 f"\nCommande '{command_word}' non reconnue. Entrez 'help' pour voir la liste des commandes disponibles.\n"
             )
 
-        # If the command is recognized, execute it
+
         else:
             command = self.commands[command_word]
             command.action(self, list_of_words, command.number_of_parameters)
 
-    # Print the welcome message
+
     def print_welcome(self):
         """
         Affiche un message de bienvenue au joueur.

@@ -1,4 +1,4 @@
-# Define the Room class.
+
 """
 Module contenant la classe Room, qui représente une pièce 
 dans notre jeu.
@@ -21,7 +21,6 @@ class Room:
 
     """
 
-    # Define the constructor.
     def __init__(self, name, description):
         """
         Initialise une nouvelle instance de la classe Room.
@@ -36,7 +35,6 @@ class Room:
         self.inventory = set()
         self.Character = set()
 
-    # Define the get_exit method.
     def get_exit(self, direction):
         """
         Récupère la pièce dans une direction donnée.
@@ -48,11 +46,10 @@ class Room:
             Room or None: La pièce dans la direction spécifiée, ou None si elle n'existe pas.
         """
 
-        # Return the room in the given direction if it exists.
         if direction in self.exits.keys():
             return self.exits[direction]
 
-    # Return a string describing the room's exits.
+
     def get_exit_string(self):
         """
          Renvoie une chaîne décrivant les sorties disponibles depuis cette pièce.
@@ -67,7 +64,7 @@ class Room:
         exit_string = exit_string.strip(", ")
         return exit_string
 
-    # Return a long description of this room including exits.
+
     def get_long_description(self):
         """
         Renvoie une description détaillée de la pièce, incluant son nom,

@@ -21,7 +21,7 @@ class Player():
         valeurs sont des instances d'Item.
     """
 
-    # Define the constructor.
+
     def __init__(self, name):
         """
         initialise un joueur avec un nom, un historique vide, et un inventaire vide.
@@ -36,7 +36,7 @@ class Player():
         self.history = []
         self.inventory = {}  # Liste des objets ramassés
 
-    # Define the move method.
+
     def move(self, direction):
         """
         Tente de déplacer le joueur dans une direction donnée.

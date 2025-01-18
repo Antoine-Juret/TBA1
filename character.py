@@ -13,9 +13,6 @@ Classes Importées:
     Player (depuis player.py): Représente le joueur dans le jeu.
 """
 
-from room import Room
-from player import Player
-
 class Character():
     """
         Classe représentant un personnage dans le jeu.
@@ -27,7 +24,7 @@ class Character():
         msgs (list[str]): Une liste de messages associés au personnage.
     """
 
-    # Define the constructor.
+
     def __init__(self, name, current_room, description, msgs):
         self.name = name
         self.current_room = None
@@ -53,8 +50,8 @@ class Character():
             # Prendre le premier message et l'afficher
             msg = self.msgs.pop(0)
             print("\n"f"{self.name} dit : {msg}")
-            # Ajouter ce message à la fin de la liste pour le rendre disponible pour le prochain appel
+            # Ajouter ce message à la fin de la liste ,pour le prochain appel
             self.msgs.append(msg)
 
-        #Room.get_msg(self)
+
         return True
