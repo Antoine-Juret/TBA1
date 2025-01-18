@@ -52,9 +52,7 @@ class Character():
         if self.msgs:
             # Prendre le premier message et l'afficher
             msg = self.msgs.pop(0)
-            print("oui")
-            print(msg)
-            print(f"{self.name} dit : {msg}")
+            print("\n"f"{self.name} dit : {msg}")
             # Ajouter ce message à la fin de la liste pour le rendre disponible pour le prochain appel
             self.msgs.append(msg)
 

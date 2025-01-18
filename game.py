@@ -171,13 +171,13 @@ class Game:
             "soldat_allemand",
             Avant_poste_Allemand,
             "un soldat allemand monte la garde",
-            [" Halte ou j'ouvre le feu !!", " fire !! "],
+            [" Halte ou j'ouvre le feu !!", " Fire !! "],
         )
-        Commandant_Raynel = Character(
+        Commandant_Raynal = Character(
             "Commandant_Raynal",
             Position_Avancée,
             "Le Commandant Raynal qui va lancer l'assault",
-            ["Dépèchez vous on va attaquer", "Il n'y aura pas d'attaque finalement"],
+            ["Dépèchez vous on va attaquer", "Avez vous une lettre ?"],
         )
 
         Quartier_général.exits = {
@@ -311,7 +311,7 @@ class Game:
         Caserne_Est.inventory.add(casque_Adrian)
         # Assignation des pnj aux lieux
         Avant_poste_Allemand.Character.add(soldat_allemand)
-        Position_Avancée.Character.add(Commandant_Raynel)
+        Position_Avancée.Character.add(Commandant_Raynal)
 
     def play(self):
         """
@@ -325,6 +325,7 @@ class Game:
 
             # Vérifier si le joueur a atteint l'objectif de fin
             if self.check_victory_condition():
+                print("\nCommandant_Raynal dit" " : " "Il n'y aura pas d'attaque finalement.")
                 print("\nFélicitations, vous avez gagné le jeu!")
                 self.finished = True  # Mettre fin au jeu
             if self.check_victory_condition():
